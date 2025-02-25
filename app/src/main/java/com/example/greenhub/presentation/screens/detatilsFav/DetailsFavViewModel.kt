@@ -1,0 +1,49 @@
+package com.example.greenhub.presentation.screens.detatilsFav
+
+import android.util.Log
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.greenhub.domain.model.Plant
+import com.example.greenhub.domain.use_cases.UseCases
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+
+@HiltViewModel
+class DetailsFavViewModel @Inject constructor(
+    private val useCase: UseCases,
+    savedStateHandle: SavedStateHandle
+):ViewModel() {
+
+    private val _selectedPlant: MutableStateFlow<Plant?> = MutableStateFlow(null)
+    val selectedPlant: StateFlow<Plant?> = _selectedPlant
+
+    init {
+        viewModelScope.launch(Dispatchers.IO) {
+            val plantId = savedStateHandle.get<Int>("plantId")
+            _selectedPlant.value = plantId?.let { useCase.getSelectedPlantUseCase(plantId) }
+            _selectedPlant.value?.type?.let {  Log.d("Plant",it)}
+
+        }
+    }
+
+    fun updateFavouriteStatus(plantId: Int, isFavourite: Boolean) {
+        viewModelScope.launch(Dispatchers.IO) {
+            useCase.updateFavouritePlantUseCase(plantId, isFavourite)
+            _selectedPlant.value = _selectedPlant.value?.copy(favourite = false)
+        }
+    }
+
+    fun updatePlantName(plantId: Int, name: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            useCase.updatePlantNameUseCase(plantId, name)
+            _selectedPlant.value = _selectedPlant.value?.copy(name = name)
+        }
+    }
+
+}
