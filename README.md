@@ -10,3 +10,10 @@ Do przechowywania oraz operacji na zebranych danych zdecydowałem się użyć SQ
 Postanowiłem również dodać możliwość utworzenia konta przy pierwszym starcie aplikacji poprzez biblioteke "Google Firebase", która  umożliwia szybkie i bezpieczne uwierzytelnianie użytkowników za pomocą metod takich jak e-mail i hasło, a także wsparcie dla zewnętrznych dostawców logowania, np. Google lub Facebook. Użytkownik po utworzeniu konta, będzie mógł się na nie zalogować zgodnie z podanymi przez niego wcześniej danymi np. username oraz password. Wygląd segementów logowania oraz rejestracji lekko rózni się od pozostałego UI aplikacji, ponieważ dodałem te funkcjonalności po napisaniu głownego trzonu aplikacji i nie chciałem go zmieniać, co było spowodowane tym że znalazłem nowoczesną biblioteke dotworzenia interfejsu, która wymagała innej struktury kodu w projekcie.
 
 Aplikacja ma przyjemne dla oka UI oraz responsywne UX. Do inspiracji jeśli chodzi o stronę wizualną aplikacji posłużyły mi rożne concept art'y znalezione w internecie, jak może wyglądać aplikacja w stylu "Plant Care"/"Plant Management". 
+
+![image alt](https://github.com/ingridoo123/Plant-Care-App/blob/5fb2700cd20c65e4805ae5705457f5d2c607a8ef/Untitled.png)
+![image alt](https://github.com/ingridoo123/Plant-Care-App/blob/5fb2700cd20c65e4805ae5705457f5d2c607a8ef/Desktop%20-%202.png)
+![image alt](https://github.com/ingridoo123/Plant-Care-App/blob/5fb2700cd20c65e4805ae5705457f5d2c607a8ef/Desktop%20-%203.png)
+![image_alt](https://github.com/ingridoo123/Plant-Care-App/blob/5fb2700cd20c65e4805ae5705457f5d2c607a8ef/Desktop%20-%204.png)
+
+
